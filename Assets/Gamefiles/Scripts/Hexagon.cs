@@ -21,15 +21,10 @@ public class Hexagon : MonoBehaviour
 
     public void DisableCollider() => col.enabled = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetParent(Transform parent)
     {
-
+        transform.parent = parent;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

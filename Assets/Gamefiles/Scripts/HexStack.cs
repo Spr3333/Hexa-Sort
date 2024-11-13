@@ -12,12 +12,12 @@ public class HexStack : MonoBehaviour
             hexagons = new List<Hexagon>();
 
         hexagons.Add(hexagon);
+        hexagon.SetParent(transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    public Color GetTopHexagonColor()
     {
-
+        return hexagons[^1].color;
     }
 
     public void Placed()
@@ -26,5 +26,15 @@ public class HexStack : MonoBehaviour
         {
             hexagon.DisableCollider();
         }
+    }
+
+    public bool Contains(Hexagon hexagon) => hexagons.Contains(hexagon);
+
+
+    public void Remove(Hexagon hexagon)
+    {
+        hexagons.Remove(hexagon);
+        if (hexagons.Count <= 0)
+            DestroyImmediate(this.gameObject);
     }
 }
